@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
     const [theme, setTheme] = useState('light');
@@ -24,15 +25,15 @@ const Navbar = () => {
         }
     }
     return (
-        <div className="navbar bg-base-100 shadow-lg px-8 h-16 fixed z-50">
+        <div className="navbar bg-base-100 shadow-lg px-8 fixed z-50">
             <div className="flex-1">
-                <a className="btn btn-ghost text-2xl text-secondary normal-case gap-0">Byte<span className="text-primary">Blaze</span></a>
+                <Link to="/" className="btn btn-ghost text-2xl text-secondary normal-case gap-0">Byte<span className="text-primary">Blaze</span></Link>
             </div>
-            <div className="flex-none">
-                <ul className="menu menu-horizontal px-1 *:font-bold">
-                    <li><a>Home</a></li>
-                    <li><a>Blogs</a></li>
-                    <li><a>Bookmarks</a></li>
+            <div className="flex-none gap-2">
+                <ul className="menu menu-horizontal px-1 *:font-bold hidden sm:flex gap-5">
+                    <NavLink to="/" className={({ isActive }) => isActive ? 'text-primary' : ''}>Home</NavLink>
+                    <NavLink to="/blogs" className={({ isActive }) => isActive ? 'text-primary' : ''}>Blogs</NavLink>
+                    <NavLink to="/bookmarks" className={({ isActive }) => isActive ? 'text-primary' : ''}>Bookmarks</NavLink>
                 </ul>
                 <label className="cursor-pointer grid place-items-center">
                     <input onChange={handleThemeToggle} checked={theme === 'light' ? false : true} type="checkbox" className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2" />
