@@ -10,7 +10,8 @@ const Content = () => {
         title,
         description,
         tags,
-        body_html
+        body_html,
+        url
     } = data;
     return (
         <div rel="noopener noreferrer" className="mx-auto group border-2 border-opacity-30 p-2 hover:no-underline focus:no-underline bg-gray-900 dark:bg-gray-50">
@@ -21,7 +22,7 @@ const Content = () => {
                 }
             </div>
             <div className="space-y-2">
-                <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">{title}</h3>
+                <a href={url} target="_blank" className="text-2xl font-semibold group-hover:underline group-focus:underline">{title}</a>
                 <Markdown rehypePlugins={[rehypeRaw]}>
                     {body_html}
                 </Markdown>
