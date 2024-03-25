@@ -21,7 +21,6 @@ export default {
       },
     },
   },
-  darkMode: 'selector',
   plugins: [require("daisyui")],
   daisyui: {
     themes: ["light", "synthwave"],
